@@ -1,15 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Briefcase, Plus } from 'lucide-react'
 import { JobCard } from './components/JobCard'
 import { JobFilters } from './components/JobFilters'
 import { JobModal } from './components/JobModal'
 import { CreateJobModal } from './components/CreateJobModal'
 import { ApplicationModal } from './components/ApplicationModal'
-import { jobs as initialJobs } from './data/jobs'
+//import { jobs as initialJobs } from './data/jobs'
+import { jobsApi } from './services/api'
 import { Job, JobFilter } from './types'
 
 function App() {
-  const [jobs, setJobs] = useState<Job[]>(initialJobs)
+  const [jobs, setJobs] = useState<Job[]>([])
   const [filters, setFilters] = useState<JobFilter>({
     type: [],
     level: [],

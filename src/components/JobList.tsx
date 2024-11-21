@@ -16,6 +16,7 @@ export function JobList() {
       .then((data) => {
         setJobs(data)
         setLoading(false)
+        console.log('GO')
       })
       .catch((error) => {
         console.error('Error fetching jobs:', error)
